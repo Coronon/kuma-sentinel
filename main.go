@@ -8,13 +8,13 @@ import (
 	"github.com/kardianos/service"
 	"go.uber.org/zap"
 
-	"github.com/coronon/uptime-robot/config"
-	"github.com/coronon/uptime-robot/monitors"
+	"github.com/coronon/kuma-sentinel/config"
+	"github.com/coronon/kuma-sentinel/monitors"
 )
 
 const version = "v1.0.0"
-const serviceName = "de.rubinraithel.uptime-robot"
-const displayName = "Uptime-Robot" + " " + version
+const serviceName = "de.rubinraithel.kuma-sentinel"
+const displayName = "KumaSentinel" + " " + version
 const serviceDesc = "Utility service that provides push based uptime monitoring for various services"
 
 type program struct{}
@@ -33,7 +33,7 @@ func (p program) Stop(s service.Service) error {
 func (p program) run() {
 	// Handle config
 	// TODO: Make this dynamic with a default
-	configPath := "uptime-robot.yml"
+	configPath := "kuma-sentinel.yml"
 
 	zap.S().Infof("Parsing config at: %v", configPath)
 	config := config.ReadConfig(configPath)
@@ -55,9 +55,9 @@ func init() {
 
 func main() {
 	// Handle command line arguments
-	shouldInstall := flag.Bool("install", false, "Installs Uptime-Robot as a service on your computer")
-	shouldUninstall := flag.Bool("uninstall", false, "Uninstalls the Uptime-Robot service from your computer")
-	isForcedRun := flag.Bool("interactive", false, "Run Uptime-Robot interactively (not as a service)")
+	shouldInstall := flag.Bool("install", false, "Installs Kuma-Sentinel as a service on your computer")
+	shouldUninstall := flag.Bool("uninstall", false, "Uninstalls the Kuma-Sentinel service from your computer")
+	isForcedRun := flag.Bool("interactive", false, "Run Kuma-Sentinel interactively (not as a service)")
 	isVerbose := flag.Bool("v", false, "Enable debug output (might include sensitive data!)")
 
 	flag.Parse()
@@ -99,7 +99,7 @@ func main() {
 
 	// Handle uninstall
 	if *shouldUninstall {
-		zap.L().Info("Uninstalling the Uptime-Robot service from your computer...")
+		zap.L().Info("Uninstalling the Kuma-Sentinel service from your computer...")
 
 		err = s.Uninstall()
 		if err != nil {
@@ -112,7 +112,7 @@ func main() {
 	// Handle install
 	// This is handled after uninstall to allow "re-installing" by specifying both flags
 	if *shouldInstall {
-		zap.L().Info("Installing the Uptime-Robot service to your computer...")
+		zap.L().Info("Installing the Kuma-Sentinel service to your computer...")
 
 		err = s.Install()
 		if err != nil {
@@ -124,12 +124,12 @@ func main() {
 
 	// Actually run program if invoked by service manager or forced interactively
 	if !service.Interactive() || *isForcedRun {
-		zap.L().Info("Starting Uptime-Robot...")
+		zap.L().Info("Starting Kuma-Sentinel...")
 		err = s.Run()
 		if err != nil {
 			zap.S().Fatalw("Cannot start", "error", err.Error())
 		}
 	} else {
-		zap.L().Info("Not running under a service manager or forced interactive - not starting Uptime-Robot")
+		zap.L().Info("Not running under a service manager or forced interactive - not starting Kuma-Sentinel")
 	}
 }

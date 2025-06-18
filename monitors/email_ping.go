@@ -10,7 +10,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/coronon/uptime-robot/config"
+	"github.com/coronon/kuma-sentinel/config"
 	"github.com/emersion/go-imap"
 	"github.com/emersion/go-imap/client"
 	"github.com/google/uuid"

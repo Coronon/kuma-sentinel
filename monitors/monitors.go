@@ -6,7 +6,7 @@ import (
 	"net/url"
 	"time"
 
-	"github.com/coronon/uptime-robot/config"
+	"github.com/coronon/kuma-sentinel/config"
 	"go.uber.org/zap"
 )
 

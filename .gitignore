@@ -20,5 +20,5 @@
 # Go workspace file
 go.work
 
-# Uptime-Robot
-uptime-robot.yml
+# Kuma-Sentinel
+kuma-sentinel.yml

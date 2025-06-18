@@ -1,23 +1,29 @@
-# Uptime-Robot
+# Kuma-Sentinel
 
-Uptime-Robot is a versatile service that allows you to monitor various types of
+Kuma-Sentinel is a versatile service that allows you to monitor various types of
 monitors and push the collected data to
 [Uptime-Kuma](https://github.com/louislam/uptime-kuma). This README will guide
-you through the setup and configuration process for using Uptime-Robot
+you through the setup and configuration process for using Kuma-Sentinel
 effectively.
 
 ## Table of Contents
 
-- [Introduction](#introduction)
-- [Installation](#installation)
-- [Configuration](#configuration)
-- [Usage](#usage)
-- [Contributing](#contributing)
-- [License](#license)
+- [Kuma-Sentinel](#kuma-sentinel)
+  - [Table of Contents](#table-of-contents)
+  - [Introduction](#introduction)
+  - [Installation](#installation)
+  - [Configuration](#configuration)
+    - [Monitor Types](#monitor-types)
+      - [alive](#alive)
+      - [disk\_usage](#disk_usage)
+      - [email\_ping](#email_ping)
+  - [Usage](#usage)
+  - [Contributing](#contributing)
+  - [License](#license)
 
 ## Introduction
 
-Uptime-Robot is designed to help you monitor the uptime and performance of your
+Kuma-Sentinel is designed to help you monitor the uptime and performance of your
 websites, APIs, servers, and other online services. By configuring different
 monitor types, you can collect valuable data and push it to
 [Uptime-Kuma](https://github.com/louislam/uptime-kuma) for further analysis and
@@ -30,27 +36,27 @@ make informed decisions.
 
 ## Installation
 
-To use Uptime-Robot, follow these steps:
+To use Kuma-Sentinel, follow these steps:
 
-1. Download the Uptime-Robot executable for your operating system from the
-[releases](https://github.com/coronon/uptime-robot/releases) page.
+1. Download the Kuma-Sentinel executable for your operating system from the
+[releases](https://github.com/coronon/kuma-sentinel/releases) page.
 
 2. Place the executable in a directory of your choice.
 3. Install the executable as a system service:
 
 ```bash
 # You might need to run this command as root/administrator
-./uptime-robot -install
+./kuma-sentinel -install
 ```
-4. Uptime-Robot is now installed as a system-wide service.
+4. Kuma-Sentinel is now installed as a system-wide service.
 
 ## Configuration
 
-Before you can start using Uptime-Robot, you need to configure it properly.
-Uptime-Robot tries to locate its configuration next to the binary.
+Before you can start using Kuma-Sentinel, you need to configure it properly.
+Kuma-Sentinel tries to locate its configuration next to the binary.
 Follow these steps to set up the configuration:
 
-1. Create a `uptime-robot.yml` file in the Uptime-Robot directory.
+1. Create a `kuma-sentinel.yml` file in the Kuma-Sentinel directory.
 2. Customize the configuration options according to your requirements. 
 
 ```yaml
@@ -89,7 +95,7 @@ monitors:
 ```
 
 3. Save the configuration file to disk.
-4. Restart the Uptime-Robot service.
+4. Restart the Kuma-Sentinel service.
 
 ### Monitor Types
 
@@ -214,20 +220,20 @@ avoid interference with other operations.
 
 ## Usage
 
-Once you have installed and configured Uptime-Robot, you can use it from the
+Once you have installed and configured Kuma-Sentinel, you can use it from the
 terminal by following these steps:
 
 1. Open a terminal or command prompt.
-2. Navigate to the directory where you placed the Uptime-Robot executable.
-3. Run the Uptime-Robot executable:
+2. Navigate to the directory where you placed the Kuma-Sentinel executable.
+3. Run the Kuma-Sentinel executable:
 
 ```bash
-# The -interactive flag is necessary if uptime-robot is not running under a
+# The -interactive flag is necessary if kuma-sentinel is not running under a
 # service manager
-./uptime-robot -interactive
+./kuma-sentinel -interactive
 ```
 
-4. Uptime-Robot will start monitoring the specified monitor types and collect
+4. Kuma-Sentinel will start monitoring the specified monitor types and collect
 data.
 5. The collected data will be pushed to
 [Uptime-Kuma](https://github.com/louislam/uptime-kuma) for analysis and
@@ -237,9 +243,9 @@ preferred web browser and explore the collected data.
 
 ## Contributing
 
-Contributions to Uptime-Robot are welcome! If you encounter any issues or have
+Contributions to Kuma-Sentinel are welcome! If you encounter any issues or have
 suggestions for improvements, please open an issue on the
-[GitHub repository](https://github.com/Coronon/uptime-robot/issues).
+[GitHub repository](https://github.com/coronon/kuma-sentinel/issues).
 
 If you want to contribute to the project, follow these steps:
 
@@ -252,7 +258,7 @@ of your changes.
 
 ## License
 
-Uptime-Robot is open-source software licensed under the
+Kuma-Sentinel is open-source software licensed under the
 [3-Clause BSD License](https://opensource.org/license/bsd-3-clause/).
-See the [LICENSE](https://github.com/Coronon/uptime-robot/blob/master/LICENSE)
+See the [LICENSE](https://github.com/coronon/kuma-sentinel/blob/master/LICENSE)
 file for more details.
